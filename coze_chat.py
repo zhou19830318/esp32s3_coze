@@ -74,7 +74,7 @@ def init_i2s_speaker():
             bits=BIT_DEPTH,         # 位深度
             format=I2S.MONO,        # 单声道
             rate=RATE,              # 采样率
-            ibuf=CHUNK * 16          # 输出缓冲区大小
+            ibuf=CHUNK * 32          # 输出缓冲区大小
         )
         print("✅ 扬声器I2S初始化成功")
         return audio_out
