@@ -5,7 +5,7 @@ WIFI_PASSWORD = "WIFI_PASS"         # 替换为你的 Wi-Fi 密码
 
 # 音频配置参数
 CHUNK = 1024      # 数据块大小
-RATE = 8000      # 采样率
+RATE = 16000      # 采样率
 CHANNELS = 1      # 通道数
 BIT_DEPTH = 16    # 位深度
 
