@@ -53,8 +53,8 @@
 - `main.py`：主程序入口
 - `config.py`：配置文件
 - `coze_chat.py`：Coze平台通信模块
-- `oled_display.py`：OLED显示控制
-- `ssd1306.py`：OLED驱动
+- `easydisplay.py`：OLED显示控制
+- `st7735.py`：OLED驱动
 - `aiohttp`目录：WebSocket通信库
 
 ## 许可证
