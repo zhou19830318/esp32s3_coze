@@ -54,7 +54,8 @@
 - `config.py`：配置文件
 - `coze_chat.py`：Coze平台通信模块
 - `easydisplay.py`：LCD显示控制
-- `st7735.py`：LCD驱动
+- `st7735_buf.py`：LCD驱动
+- `text_lite_16px_2312.v3.bmf`：中文字库文件
 - `aiohttp`目录：WebSocket通信库
 
 ## 许可证
