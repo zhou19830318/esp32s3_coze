@@ -17,7 +17,7 @@ from config import SPK_SCK_PIN, SPK_WS_PIN, SPK_SD_PIN
 from config import RATE, CHANNELS, BIT_DEPTH, CHUNK, VOICE_ID
 
 # 导入OLED显示相关变量
-from oled_display import oled, listen_fb, talk_fb
+#from oled_display import oled, listen_fb, talk_fb
 # 使用collections.deque和线程锁实现线程安全的队列
 
 # 全局变量
@@ -132,9 +132,9 @@ def audio_recording_thread(ws_obj):
             return
 
         # 显示录音状态
-        oled.fill(0)  # 清空屏幕
-        oled.blit(listen_fb, 16, 8)  # 显示"耹听中.."
-        oled.show()
+        #oled.fill(0)  # 清空屏幕
+        #oled.blit(listen_fb, 16, 8)  # 显示"耹听中.."
+        #oled.show()
 
         # 分配音频缓冲区
         audio_buffer = bytearray(CHUNK)  # 修改缓冲区大小
@@ -282,9 +282,9 @@ async def handle_message(ws, data):
             if play_result:
                 audio_playing = True
                 # 显示播放状态
-                oled.fill(0)  # 清空屏幕
-                oled.blit(talk_fb, 16, 8)  # 显示"说话中.."
-                oled.show()
+                #oled.fill(0)  # 清空屏幕
+                #oled.blit(talk_fb, 16, 8)  # 显示"说话中.."
+                #oled.show()
             # 简化日志输出，避免过多打印
             if not audio_playing:
                 print("Received audio delta and playing")
@@ -296,9 +296,9 @@ async def handle_message(ws, data):
         audio_recording = True
         print("音频播放完成，恢复录音")
         # 显示录音状态
-        oled.fill(0)  # 清空屏幕
-        oled.blit(listen_fb, 16, 8)  # 显示"耹听中.."
-        oled.show()
+        #oled.fill(0)  # 清空屏幕
+        #oled.blit(listen_fb, 16, 8)  # 显示"耹听中.."
+        #oled.show()
         # 如果录音线程已经停止，重新启动
         if audio_ws and not audio_in:
             _thread.start_new_thread(audio_recording_thread, (audio_ws,))
@@ -340,9 +340,9 @@ async def handle_message(ws, data):
         audio_recording = True
         audio_ws = ws
         # 显示录音状态
-        oled.fill(0)  # 清空屏幕
-        oled.blit(listen_fb, 16, 8)  # 显示"耹听中.."
-        oled.show()
+        #oled.fill(0)  # 清空屏幕
+        #oled.blit(listen_fb, 16, 8)  # 显示"耹听中.."
+        #oled.show()
         _thread.start_new_thread(audio_recording_thread, (ws,))
         print("✅ 已启动录音线程")
 
@@ -350,8 +350,8 @@ async def handle_message(ws, data):
     elif event_type == 'chat.completed':
         audio_recording = False
         # 清空OLED显示
-        oled.fill(0)
-        oled.show()
+        #oled.fill(0)
+        #oled.show()
         print("✅ 已停止录音")
 
     # 默认继续保持连接
@@ -374,8 +374,8 @@ async def chat_client():
     audio_out = None
 
     # 初始化OLED显示
-    oled.fill(0)  # 清空屏幕
-    oled.show()
+    #oled.fill(0)  # 清空屏幕
+    #oled.show()
 
     try:
         async with ClientSession(headers=HEADERS) as session:
